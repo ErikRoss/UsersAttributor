@@ -29,6 +29,7 @@ def collect_parameters(user_data, request):
         "panel_clid": user_data.panel_clid,
         "service_tag": user_data.service_tag,
         "ip": user_data.user_ip,
+        "city": user_data.city,
         "user_agent_full": user_data.user_agent,
         "user_agent_short": str(user_agent),
         "os": user_agent.os.family,
@@ -60,3 +61,6 @@ def generate_search_key(user_data):
     logs.info(f"Generated search key: {search_key}")
     
     return search_key
+
+def get_short_user_agent(user_agent):
+    return str(parse(user_agent))

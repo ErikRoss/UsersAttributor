@@ -17,6 +17,7 @@ class User(Base):
     service_tag = Column(String)
     panel_clid = Column(String, index=True)
     ip = Column(String, index=True)
+    city = Column(String)
     user_agent_full = Column(String)
     user_agent_short = Column(String)
     os = Column(String)
@@ -37,6 +38,7 @@ class User(Base):
             "service_tag": self.service_tag,
             "panel_clid": self.panel_clid,
             "ip": self.ip,
+            "city": self.city,
             "user_agent_full": self.user_agent_full,
             "user_agent_short": self.user_agent_short,
             "os": self.os,
