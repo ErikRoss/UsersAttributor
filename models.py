@@ -16,6 +16,7 @@ class User(Base):
     initiator = Column(String)
     service_tag = Column(String)
     panel_clid = Column(String, index=True)
+    appclid = Column(Integer, default=None)
     ip = Column(String, index=True)
     city = Column(String)
     user_agent_full = Column(String)
@@ -37,6 +38,7 @@ class User(Base):
             "initiator": self.initiator,
             "service_tag": self.service_tag,
             "panel_clid": self.panel_clid,
+            "appclid": self.appclid,
             "ip": self.ip,
             "city": self.city,
             "user_agent_full": self.user_agent_full,

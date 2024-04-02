@@ -29,6 +29,7 @@ class UserAttributes(BaseModel):
     user_ip: str
     city: Optional[str] = None
     panel_clid: Optional[str] = None
+    appclid: Optional[int] = None
     initiator: Optional[str] = None
     service_tag: Optional[str] = None
 
@@ -192,7 +193,11 @@ async def search_user(user_attributes: UserAttributes):
         user = _search_by_user_ip(db, user_attributes)
     if not user:
         user = _search_by_user_agent_and_city(db, user_attributes)
-        
+    
+    if user and not user.appclid and user_attributes.appclid:
+        user.appclid = user_attributes.appclid
+        db.commit()
+    
     db.close()
     
     if user:

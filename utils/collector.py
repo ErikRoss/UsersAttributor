@@ -26,8 +26,9 @@ def collect_parameters(user_data, request):
     user_agent = parse(user_data.user_agent)
     user_parameters = {
         "initiator": initiator,
-        "panel_clid": user_data.panel_clid,
         "service_tag": user_data.service_tag,
+        "panel_clid": user_data.panel_clid,
+        "appclid": user_data.appclid,
         "ip": user_data.user_ip,
         "city": user_data.city,
         "user_agent_full": user_data.user_agent,
